@@ -17,14 +17,14 @@ const menuItems: MenuItem[] = [
   {
     name: "Birthday Cakes",
     description: "Custom designed celebration cakes for your special day",
-    price: "From ₦15,000",
+    price: "From ₦13,000",
     isBestSeller: true,
     emoji: "🎂",
   },
   {
     name: "Cake Parfait",
     description: "Layered cake and cream in a cup - pure indulgence",
-    price: "From ₦1,500",
+    price: "From ₦4,500",
     isBestSeller: true,
     emoji: "🍰",
   },
@@ -38,19 +38,19 @@ const menuItems: MenuItem[] = [
   {
     name: "Cake Loafs",
     description: "Soft, fluffy pound cakes in various flavors",
-    price: "From ₦1,200",
+    price: "From ₦5,000",
     emoji: "🍞",
   },
   {
     name: "Cupcakes",
     description: "Beautifully decorated mini cakes for any occasion",
-    price: "From ₦500 each",
+    price: "Box of 3 – ₦3,500",
     emoji: "🧁",
   },
   {
     name: "Doughnuts",
     description: "Fresh, soft doughnuts with delicious toppings",
-    price: "From ₦300 each",
+    price: "Box of 3 – ₦3,000",
     emoji: "🍩",
   },
   {
