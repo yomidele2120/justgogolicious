@@ -31,6 +31,13 @@ const priceCategories: PriceCategory[] = [
     ],
   },
   {
+    title: "Doughnuts",
+    emoji: "🍩",
+    items: [
+      { name: "Box of 3", price: "₦3,000" },
+    ],
+  },
+  {
     title: "Cake Parfait",
     emoji: "🍨",
     items: [
