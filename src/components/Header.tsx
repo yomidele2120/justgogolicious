@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.jpg";
 
 const WHATSAPP_LINKS = {
   general: "https://wa.me/2347069329078?text=Hello%20Justgogolicious%2C%20I%E2%80%99d%20like%20to%20place%20an%20order&source=website",
@@ -36,7 +37,12 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <span className="text-xl md:text-2xl font-extrabold text-gradient">
+            <img 
+              src={logo} 
+              alt="Justgogolicious Logo" 
+              className="h-10 md:h-12 w-auto rounded-lg"
+            />
+            <span className="text-lg md:text-xl font-extrabold text-gradient hidden sm:block">
               Justgogolicious
             </span>
           </a>
