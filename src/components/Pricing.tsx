@@ -20,9 +20,7 @@ const priceCategories: PriceCategory[] = [
     title: "Cupcakes",
     emoji: "🧁",
     items: [
-      { name: "Box of 4", price: "₦5,000" },
-      { name: "Box of 6", price: "₦7,000" },
-      { name: "Box of 8", price: "₦10,000" },
+      { name: "Box of 3", price: "₦3,500" },
     ],
   },
   {
@@ -30,23 +28,27 @@ const priceCategories: PriceCategory[] = [
     emoji: "🥧",
     items: [
       { name: "Box of 3", price: "₦3,500" },
-      { name: "Box of 6", price: "₦7,000" },
-      { name: "Box of 8", price: "₦10,000" },
     ],
   },
   {
     title: "Cake Parfait",
     emoji: "🍨",
     items: [
-      { name: "Per Cup", price: "₦4,500" },
+      { name: "Starting from", price: "₦4,500" },
     ],
   },
   {
-    title: "Plain Loaf Cakes",
+    title: "Cake Loafs",
     emoji: "🍞",
     items: [
-      { name: "5 inch", price: "₦5,000" },
-      { name: "6 inch", price: "₦7,000" },
+      { name: "Starting from", price: "₦5,000" },
+    ],
+  },
+  {
+    title: "Birthday Cakes",
+    emoji: "🎂",
+    items: [
+      { name: "Starting from", price: "₦13,000" },
     ],
   },
   {
