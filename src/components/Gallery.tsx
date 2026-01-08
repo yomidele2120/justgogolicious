@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { X, Instagram, ChevronLeft, ChevronRight } from "lucide-react";
 import { BestSellerBadge } from "./BestSellerBadge";
 import useEmblaCarousel from "embla-carousel-react";
-import { useCallback } from "react";
 
 // Import images
 import redVelvetCakes from "@/assets/gallery/red-velvet-cakes.jpg";
@@ -11,6 +10,12 @@ import birthdayCake from "@/assets/gallery/birthday-cake.jpg";
 import friedRice from "@/assets/gallery/fried-rice.jpg";
 import cakeParfait from "@/assets/gallery/cake-parfait.jpg";
 import parfaitCups from "@/assets/gallery/parfait-cups.jpg";
+import chinChinBags from "@/assets/gallery/chin-chin-bags.jpg";
+import jollofRice from "@/assets/gallery/jollof-rice.jpg";
+import meatpies from "@/assets/gallery/meatpies.jpg";
+import chinChinHand from "@/assets/gallery/chin-chin-hand.jpg";
+import cakeLoafs from "@/assets/gallery/cake-loafs.jpg";
+import chinChinJar from "@/assets/gallery/chin-chin-jar.jpg";
 
 const WHATSAPP_LINKS = {
   instagram: "https://wa.me/2347069329078?text=Hello%20Justgogolicious%2C%20I%20saw%20your%20food%20on%20Instagram%20and%20I%E2%80%99d%20like%20to%20order&source=instagram",
@@ -28,10 +33,16 @@ interface GalleryItem {
 const galleryItems: GalleryItem[] = [
   { id: 1, title: "Cake Parfait", category: "Best Seller", isBestSeller: true, image: cakeParfait },
   { id: 2, title: "Parfait Cups", category: "Desserts", isBestSeller: true, image: parfaitCups },
-  { id: 3, title: "Birthday Cake", category: "Cakes", isBestSeller: true, image: birthdayCake },
-  { id: 4, title: "Red Velvet Foil Cakes", category: "Cakes", image: redVelvetCakes },
-  { id: 5, title: "Assorted Foil Cakes", category: "Cakes", image: foilCakesVariety },
-  { id: 6, title: "Fried Rice & Chicken", category: "Food", image: friedRice },
+  { id: 3, title: "Meat Pies", category: "Pastries", isBestSeller: true, image: meatpies },
+  { id: 4, title: "Birthday Cake", category: "Cakes", image: birthdayCake },
+  { id: 5, title: "Red Velvet Foil Cakes", category: "Cakes", image: redVelvetCakes },
+  { id: 6, title: "Assorted Foil Cakes", category: "Cakes", image: foilCakesVariety },
+  { id: 7, title: "Jollof Rice & Chicken", category: "Food", image: jollofRice },
+  { id: 8, title: "Fried Rice & Chicken", category: "Food", image: friedRice },
+  { id: 9, title: "Chin Chin Pack", category: "Snacks", image: chinChinBags },
+  { id: 10, title: "Chin Chin Collection", category: "Snacks", image: chinChinHand },
+  { id: 11, title: "Cake Loafs", category: "Cakes", image: cakeLoafs },
+  { id: 12, title: "Chin Chin Jar", category: "Snacks", image: chinChinJar },
 ];
 
 export const Gallery = () => {
@@ -91,7 +102,7 @@ export const Gallery = () => {
                 >
                   <div
                     onClick={() => handleImageClick(item)}
-                    className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer card-hover"
+                    className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg"
                   >
                     <img
                       src={item.image}
@@ -122,14 +133,14 @@ export const Gallery = () => {
           {/* Navigation Buttons */}
           <button
             onClick={scrollPrev}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-background transition-colors"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-background transition-colors"
             aria-label="Previous"
           >
             <ChevronLeft className="w-5 h-5 text-foreground" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-background transition-colors"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-background/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-background transition-colors"
             aria-label="Next"
           >
             <ChevronRight className="w-5 h-5 text-foreground" />
@@ -137,29 +148,29 @@ export const Gallery = () => {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-5">
           {galleryItems.map((item, index) => (
             <div
               key={item.id}
               onClick={() => handleImageClick(item)}
-              className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer card-hover"
+              className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
               style={{ animationDelay: `${index * 0.05}s` }}
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
 
               {/* Best Seller Badge */}
               {item.isBestSeller && (
-                <div className="absolute top-3 left-3">
+                <div className="absolute top-3 left-3 z-10">
                   <BestSellerBadge />
                 </div>
               )}
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-primary-foreground font-bold text-lg">{item.title}</h3>
                   <p className="text-primary-foreground/70 text-sm">{item.category}</p>
@@ -175,7 +186,7 @@ export const Gallery = () => {
             href="https://instagram.com/justgogolicious"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors shadow-lg"
           >
             <Instagram className="w-5 h-5" />
             Follow @justgogolicious
@@ -186,7 +197,7 @@ export const Gallery = () => {
       {/* Lightbox */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 bg-foreground/90 flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center p-4 animate-fade-in"
           onClick={closeLightbox}
         >
           <button
@@ -198,7 +209,7 @@ export const Gallery = () => {
           </button>
 
           <div
-            className="relative max-w-2xl w-full bg-card rounded-3xl overflow-hidden animate-scale-in"
+            className="relative max-w-2xl w-full bg-card rounded-3xl overflow-hidden animate-scale-in shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Image */}

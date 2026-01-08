@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import logo from "@/assets/logo.jpg";
 
 const WHATSAPP_LINKS = {
   general: "https://wa.me/2347069329078?text=Hello%20Justgogolicious%2C%20I%E2%80%99d%20like%20to%20place%20an%20order&source=website",
@@ -14,30 +15,39 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${logo})` }}
+      />
+      
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-dark/85 via-purple-dark/90 to-purple-dark/95" />
+      
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 h-32 bg-purple-glow/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-purple-light/30 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gold/20 rounded-full blur-2xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-purple-light/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gold/15 rounded-full blur-2xl animate-float" />
       </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 pt-20 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 mb-8 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 animate-fade-up">
             <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
-            <span className="text-primary-foreground/90 text-sm font-medium">
+            <span className="text-white/90 text-sm font-medium">
               Freshly Made in Ilorin, Nigeria
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground leading-tight mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-up drop-shadow-2xl" style={{ animationDelay: "0.1s" }}>
             Delicious Cakes & 
             <span className="block mt-2">
-              <span className="relative">
+              <span className="relative inline-block">
                 Pastries
                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
                   <path d="M2 10C50 2 150 2 198 10" stroke="hsl(45 90% 55%)" strokeWidth="4" strokeLinecap="round" />
@@ -48,7 +58,7 @@ export const Hero = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-10 animate-fade-up drop-shadow-lg" style={{ animationDelay: "0.2s" }}>
             From fluffy cake loafs to crispy meatpies, every bite is a celebration. 
             Order your favorites today and taste the difference of homemade goodness.
           </p>
@@ -58,7 +68,7 @@ export const Hero = () => {
             <Button
               asChild
               size="lg"
-              className="whatsapp-btn text-lg px-8 py-6"
+              className="whatsapp-btn text-lg px-8 py-6 shadow-2xl"
             >
               <a href={WHATSAPP_LINKS.general} target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current mr-2">
@@ -71,7 +81,7 @@ export const Hero = () => {
               variant="outline"
               size="lg"
               onClick={scrollToMenu}
-              className="bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 text-lg px-8 py-6"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-lg px-8 py-6 backdrop-blur-sm shadow-xl"
             >
               View Our Menu
             </Button>
@@ -79,17 +89,17 @@ export const Hero = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 max-w-lg mx-auto animate-fade-up" style={{ animationDelay: "0.4s" }}>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary-foreground">500+</div>
-              <div className="text-sm text-primary-foreground/70">Happy Customers</div>
+            <div className="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-sm">
+              <div className="text-2xl md:text-3xl font-bold text-white">500+</div>
+              <div className="text-sm text-white/70">Happy Customers</div>
             </div>
-            <div className="text-center border-x border-primary-foreground/20">
-              <div className="text-2xl md:text-3xl font-bold text-primary-foreground">9+</div>
-              <div className="text-sm text-primary-foreground/70">Delicious Items</div>
+            <div className="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-sm border-x border-white/10">
+              <div className="text-2xl md:text-3xl font-bold text-white">9+</div>
+              <div className="text-sm text-white/70">Delicious Items</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary-foreground">5★</div>
-              <div className="text-sm text-primary-foreground/70">Customer Rating</div>
+            <div className="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-sm">
+              <div className="text-2xl md:text-3xl font-bold text-white">5★</div>
+              <div className="text-sm text-white/70">Customer Rating</div>
             </div>
           </div>
         </div>
@@ -98,7 +108,7 @@ export const Hero = () => {
       {/* Scroll indicator */}
       <button
         onClick={scrollToMenu}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/60 hover:text-primary-foreground transition-colors animate-float"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-float"
         aria-label="Scroll to menu"
       >
         <ChevronDown className="w-8 h-8" />
