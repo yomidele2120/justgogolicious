@@ -36,12 +36,17 @@ export const Hero = () => {
       <div className="container mx-auto px-4 pt-20 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-4 animate-fade-up">
             <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
             <span className="text-white/90 text-sm font-medium">
               Freshly Made in Ilorin, Nigeria
             </span>
           </div>
+          
+          {/* Brand Motto */}
+          <p className="text-gold text-lg md:text-xl font-semibold italic mb-6 animate-fade-up" style={{ animationDelay: "0.05s" }}>
+            "The perfect taste for you"
+          </p>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-up drop-shadow-2xl" style={{ animationDelay: "0.1s" }}>
