@@ -39,7 +39,10 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-extrabold mb-4">Justgogolicious</h3>
+            <h3 className="text-2xl font-extrabold mb-2">Justgogolicious</h3>
+            <p className="text-gold text-lg font-bold italic mb-4">
+              "The Perfect taste made just for you"
+            </p>
             <p className="text-primary-foreground/70 mb-6">
               Freshly made cakes and pastries in Ilorin, Nigeria. 
               Every bite is made with love.
