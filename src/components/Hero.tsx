@@ -44,8 +44,8 @@ export const Hero = () => {
           </div>
           
           {/* Brand Motto */}
-          <p className="text-gold text-lg md:text-xl font-semibold italic mb-6 animate-fade-up" style={{ animationDelay: "0.05s" }}>
-            "The perfect taste for you"
+          <p className="text-gold text-xl md:text-2xl font-bold italic mb-6 animate-fade-up drop-shadow-lg" style={{ animationDelay: "0.05s" }}>
+            "The Perfect taste made just for you"
           </p>
 
           {/* Headline */}
