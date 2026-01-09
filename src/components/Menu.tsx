@@ -62,7 +62,7 @@ const menuItems: MenuItem[] = [
   {
     name: "Foil Cakes",
     description: "Individual portions of moist cake in foil cups",
-    price: "From ₦200 each",
+    price: "Starting from ₦1,200",
     emoji: "🧁",
   },
   {
