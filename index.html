@@ -24,25 +24,60 @@
     <!-- AgentHub Chat Widget -->
     <script>
     (function() {
+      var isOpen = false;
+
       var w = document.createElement('div');
       w.id = 'agenthub-widget';
-      w.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;';
+      w.style.cssText = 'position:fixed;bottom:90px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;';
       document.body.appendChild(w);
 
-      var btn = document.createElement('button');
-      btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
-      btn.style.cssText = 'width:56px;height:56px;border-radius:50%;background:hsl(160,84%,39%);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.15);';
+      /* Chat frame container */
+      var frameWrap = document.createElement('div');
+      frameWrap.style.cssText = 'width:380px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 160px);border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.2);margin-bottom:12px;opacity:0;transform:translateY(16px) scale(0.95);transition:opacity 0.25s ease,transform 0.25s ease;pointer-events:none;';
+
+      /* Close button */
+      var closeBtn = document.createElement('button');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.style.cssText = 'position:absolute;top:8px;right:8px;z-index:10;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,0.5);color:#fff;border:none;cursor:pointer;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;';
+      closeBtn.onclick = function() { toggle(); };
+
+      var frameContainer = document.createElement('div');
+      frameContainer.style.cssText = 'position:relative;width:100%;height:100%;';
 
       var frame = document.createElement('iframe');
       frame.src = 'https://businesschatbots.lovable.app/widget/1c892f7d-5c19-4bfb-84d8-35683b92b070';
-      frame.style.cssText = 'width:380px;height:520px;border:none;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.15);display:none;margin-bottom:12px;';
+      frame.style.cssText = 'width:100%;height:100%;border:none;';
+      frame.setAttribute('loading', 'lazy');
 
-      w.appendChild(frame);
+      frameContainer.appendChild(frame);
+      frameContainer.appendChild(closeBtn);
+      frameWrap.appendChild(frameContainer);
+      w.appendChild(frameWrap);
+
+      /* Toggle button */
+      var btn = document.createElement('button');
+      btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+      btn.style.cssText = 'width:56px;height:56px;border-radius:50%;background:hsl(160,84%,39%);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:transform 0.2s ease,box-shadow 0.2s ease;flex-shrink:0;';
+      btn.onmouseenter = function() { btn.style.transform = 'scale(1.08)'; btn.style.boxShadow = '0 6px 20px rgba(0,0,0,0.25)'; };
+      btn.onmouseleave = function() { if(!isOpen) btn.style.transform = 'scale(1)'; btn.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)'; };
+      btn.onclick = function() { toggle(); };
       w.appendChild(btn);
 
-      btn.onclick = function() {
-        frame.style.display = frame.style.display === 'none' ? 'block' : 'none';
-      };
+      function toggle() {
+        isOpen = !isOpen;
+        if (isOpen) {
+          frameWrap.style.opacity = '1';
+          frameWrap.style.transform = 'translateY(0) scale(1)';
+          frameWrap.style.pointerEvents = 'auto';
+          btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+        } else {
+          frameWrap.style.opacity = '0';
+          frameWrap.style.transform = 'translateY(16px) scale(0.95)';
+          frameWrap.style.pointerEvents = 'none';
+          btn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>';
+          btn.style.transform = 'scale(1)';
+        }
+      }
     })();
     </script>
   </body>
